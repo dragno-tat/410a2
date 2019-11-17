@@ -39,14 +39,30 @@ const rightArmMetrics = ["locRemoved", "foo"];
 const leftLegMetrics = ["commentsPerLoc", "foo"];
 const rightLegMetrics = ["avgLocPerFile", "foo"];
 
-const baseRadius = 10;
+const maxRadius = 100;
 const cos45 = Math.sqrt(2)/2;
+const startCx = 300;
+const startCy = 200;
+
+const metricTotals = calculateMetricTotals();
+
+function calculateMetricTotals(){
+    const totals = {};
+    const metrics = { headMetrics, bodyMetrics, leftArmMetrics, rightArmMetrics, leftLegMetrics, rightLegMetrics };
+    for(const type in metrics){
+        for(const m of metrics[type]){
+            totals[m] = 0;
+            for(const d of dataset){
+                totals[m] += d[m];
+            }
+        }
+    }
+    return totals;
+}
 
 function calculateRadius(key, val){
-    if(val > 10 || val < 1){
-        val = 5;
-    }
-    return baseRadius*val;
+    const ratio = val / metricTotals[key];
+    return maxRadius*ratio;
 }
 
 const zoom = d3.zoom().on("zoom", function () {
@@ -87,8 +103,8 @@ const gs = developers.selectAll("g").data(dataset)
 
 // bodies
 gs.each(function(){
-    let cx = 300;
-    let cy = 200;
+    let cx = startCx;
+    let cy = startCy;
     for(let i = 0; i < bodyMetrics.length; i++){
         const b = bodyMetrics[i];
         d3.select(this)
@@ -113,10 +129,52 @@ gs.each(function(){
     }
 });
 
+// heads
+gs.each(function(parent){
+    const r = maxRadius / 3;
+    let cx = startCx;
+    let cy = startCy - calculateRadius(bodyMetrics[0], parent[bodyMetrics[0]]) - r;
+    const headg = d3.select(this)
+        .append("g")
+        .on("mouseover", onMetricOver)
+        .on("mouseout", onMetricOut);
+
+    headg.append("svg:title")
+        .text(parent.name);
+
+    headg.append("circle")
+        .attr("cx",cx)
+        .attr("cy",cy)
+        .attr("r", r)
+        .classed("head", true)
+
+    const arc = d3.arc().innerRadius(10)
+        .outerRadius(15)
+        .startAngle(90 * (Math.PI/180))
+        .endAngle(270 * (Math.PI/180));
+
+    headg.append("circle")
+        .attr("cx",cx - 10)
+        .attr("cy",cy - 10)
+        .attr("r", r/10)
+        .attr("fill", "black");
+
+    headg.append("circle")
+        .attr("cx",cx + 10)
+        .attr("cy",cy - 10)
+        .attr("r", r/10)
+        .attr("fill", "black");
+
+    headg.append("path")
+        .attr("d", arc)
+        .attr("fill", "black")
+        .attr("transform", `translate(${cx}, ${cy})`)
+});
+
 // left arms
 gs.each(function(parent){
-    let cx = 300 - calculateRadius(bodyMetrics[0], parent[bodyMetrics[0]]);
-    let cy = 200;
+    let cx = startCx - calculateRadius(bodyMetrics[0], parent[bodyMetrics[0]]);
+    let cy = startCy;
     for(let i = 0; i < leftArmMetrics.length; i++){
         const b = leftArmMetrics[i];
         d3.select(this)
@@ -151,8 +209,8 @@ gs.each(function(parent){
 
 // right arms
 gs.each(function(parent){
-    let cx = 300 + calculateRadius(bodyMetrics[0], parent[bodyMetrics[0]]);
-    let cy = 200;
+    let cx = startCx + calculateRadius(bodyMetrics[0], parent[bodyMetrics[0]]);
+    let cy = startCy;
     for(let i = 0; i < rightArmMetrics.length; i++){
         const b = rightArmMetrics[i];
         d3.select(this)
@@ -249,10 +307,10 @@ gs.each(function(parent){
     }
 });
 
-function onMetricOver(b) {
+function onMetricOver() {
     d3.select(this).attr("stroke", "black");
 }
 
-function onMetricOut(b) {
+function onMetricOut() {
     d3.select(this).attr("stroke", null);
 }

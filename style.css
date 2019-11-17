@@ -10,3 +10,7 @@ body {
 circle {
     fill: red;
 }
+
+.head {
+    fill: yellow;
+}
