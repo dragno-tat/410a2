@@ -7,10 +7,24 @@ body {
     bottom:0;
     left:0;
 }
-circle {
-    fill: red;
+
+.legend {
+    width: 10%;
+    position:fixed;
+    top:auto;
+    right:0;
+    bottom:0;
+    left:0;
 }
 
 .head {
     fill: yellow;
+}
+
+.eye {
+    fill: red;
+}
+
+.smile {
+    fill: black;
 }

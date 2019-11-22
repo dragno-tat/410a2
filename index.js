@@ -1,43 +1,60 @@
-const dataset = [
-    {
-        name: "developer1",
-        commits: 10,
-        locAdded: 5112,
-        locRemoved: 500,
-        activeDays: 10,
-        commentsPerLoc: 0.15,
-        avgLocPerFile: 20.13,
-        foo: 3
-    },
-    {
-        name: "developer2",
-        commits: 5,
-        locAdded: 112413,
-        locRemoved: 50098,
-        activeDays: 65,
-        commentsPerLoc: 0.5,
-        avgLocPerFile: 99.41,
-        foo: 2
-    },
-    {
-        name: "developer3",
-        commits: 1,
-        locAdded: 51,
-        locRemoved: 7761,
-        activeDays: 1,
-        commentsPerLoc: 1.2,
-        avgLocPerFile: 15.2,
-        foo: 1
-    }
-];
+const dataset = [];
+
+function addMetadataToDataset(){
+    dataset.push(...metadata.authors["List of Authors"].map(a => {
+        const age = Number(a["Age"].split(" ")[0]);
+        return {
+            name: a["Author"].replace(/\s/g, ''),
+            linesAdded: Number(a["+ lines"]),
+            linesRemoved: Number(a["- lines"]),
+            activeDays: Number(a["Active days"]),
+            commits: Number(a["Commits (%)"].split(" ")[0]),
+            age: isNaN(age) ? 1 : age,
+        }
+    }));
+}
+
+addMetadataToDataset();
 
 /* parts */
-const headMetrics = ["activeDays"];
-const bodyMetrics = ["commits", "foo"];
-const leftArmMetrics = ["locAdded", "foo"];
-const rightArmMetrics = ["locRemoved", "foo"];
-const leftLegMetrics = ["commentsPerLoc", "foo"];
-const rightLegMetrics = ["avgLocPerFile", "foo"];
+const metrics = [
+    {
+        key: "linesAdded",
+        description: "Lines Added",
+        colour: "red",
+        part: "rightArm"
+    },
+    {
+        key: "linesRemoved",
+        description: "Lines Removed",
+        colour: "blue",
+        part: "leftArm"
+    },
+    {
+        key: "commits",
+        description: "Commits",
+        colour: "green",
+        part: "body"
+    },
+    {
+        key: "activeDays",
+        description: "Active Days",
+        colour: "#fa1abc",
+        part: "leftLeg"
+    },
+    {
+        key: "age",
+        description: "Length on Project",
+        colour: "#34eb52",
+        part: "rightLeg"
+    },
+];
+
+const bodyMetrics = metrics.filter(m => m.part === "body");
+const leftLegMetrics = metrics.filter(m => m.part === "leftLeg");
+const leftArmMetrics = metrics.filter(m => m.part === "leftArm");
+const rightLegMetrics = metrics.filter(m => m.part === "rightLeg");
+const rightArmMetrics = metrics.filter(m => m.part === "rightArm");
 
 const maxRadius = 100;
 const cos45 = Math.sqrt(2)/2;
@@ -48,13 +65,10 @@ const metricTotals = calculateMetricTotals();
 
 function calculateMetricTotals(){
     const totals = {};
-    const metrics = { headMetrics, bodyMetrics, leftArmMetrics, rightArmMetrics, leftLegMetrics, rightLegMetrics };
-    for(const type in metrics){
-        for(const m of metrics[type]){
-            totals[m] = 0;
-            for(const d of dataset){
-                totals[m] += d[m];
-            }
+    for(const m of metrics){
+        totals[m.key] = 0;
+        for(const d of dataset){
+            totals[m.key] += d[m.key];
         }
     }
     return totals;
@@ -112,20 +126,21 @@ gs.each(function(){
             .attr("cx",cx)
             .attr("cy", d => {
                 if(i > 0){
-                    cy += calculateRadius(b, d[b]);
+                    cy += calculateRadius(b.key, d[b.key]);
                 }
                 return cy;
             })
             .attr("r", d => {
-                const r = calculateRadius(b, d[b]);
+                const r = calculateRadius(b.key, d[b.key]);
                 cy += r;
                 return r;
             })
-            .classed(b, true)
+            .attr("fill", b.colour)
+            .classed(b.key, true)
             .on("mouseover", onMetricOver)
             .on("mouseout", onMetricOut)
             .append("svg:title")
-            .text(d => `${b} : ${d[b]}`)
+            .text(d => `${b.description} : ${d[b.key]}`)
     }
 });
 
@@ -133,7 +148,7 @@ gs.each(function(){
 gs.each(function(parent){
     const r = maxRadius / 3;
     let cx = startCx;
-    let cy = startCy - calculateRadius(bodyMetrics[0], parent[bodyMetrics[0]]) - r;
+    let cy = startCy - calculateRadius(bodyMetrics[0].key, parent[bodyMetrics[0].key]) - r;
     const headg = d3.select(this)
         .append("g")
         .on("mouseover", onMetricOver)
@@ -146,7 +161,7 @@ gs.each(function(parent){
         .attr("cx",cx)
         .attr("cy",cy)
         .attr("r", r)
-        .classed("head", true)
+        .classed("head", true);
 
     const arc = d3.arc().innerRadius(10)
         .outerRadius(15)
@@ -157,23 +172,23 @@ gs.each(function(parent){
         .attr("cx",cx - 10)
         .attr("cy",cy - 10)
         .attr("r", r/10)
-        .attr("fill", "black");
+        .classed("eye", true);
 
     headg.append("circle")
         .attr("cx",cx + 10)
         .attr("cy",cy - 10)
         .attr("r", r/10)
-        .attr("fill", "black");
+        .classed("eye", true);
 
     headg.append("path")
         .attr("d", arc)
-        .attr("fill", "black")
+        .classed("smile", true)
         .attr("transform", `translate(${cx}, ${cy})`)
 });
 
 // left arms
 gs.each(function(parent){
-    let cx = startCx - calculateRadius(bodyMetrics[0], parent[bodyMetrics[0]]);
+    let cx = startCx - calculateRadius(bodyMetrics[0].key, parent[bodyMetrics[0].key]);
     let cy = startCy;
     for(let i = 0; i < leftArmMetrics.length; i++){
         const b = leftArmMetrics[i];
@@ -181,35 +196,36 @@ gs.each(function(parent){
             .append("circle")
             .attr("cx", d => {
                 if(i === 0){
-                    cx -= calculateRadius(b, d[b]);
+                    cx -= calculateRadius(b.key, d[b.key]);
                 } else {
-                    cx -= cos45*calculateRadius(b, d[b]);
+                    cx -= cos45*calculateRadius(b.key, d[b.key]);
                 }
                 return cx;
             })
             .attr("cy", d => {
                 if(i > 0){
-                    cy -= cos45*calculateRadius(b, d[b]);
+                    cy -= cos45*calculateRadius(b.key, d[b.key]);
                 }
                 return cy;
             })
             .attr("r", d => {
-                const r = calculateRadius(b, d[b]);
+                const r = calculateRadius(b.key, d[b.key]);
                 cx -= cos45*r;
                 cy -= cos45*r;
                 return r;
             })
-            .classed(b, true)
+            .attr("fill", b.colour)
+            .classed(b.key, true)
             .on("mouseover", onMetricOver)
             .on("mouseout", onMetricOut)
             .append("svg:title")
-            .text(d => `${b} : ${d[b]}`)
+            .text(d => `${b.description} : ${d[b.key]}`)
     }
 });
 
 // right arms
 gs.each(function(parent){
-    let cx = startCx + calculateRadius(bodyMetrics[0], parent[bodyMetrics[0]]);
+    let cx = startCx + calculateRadius(bodyMetrics[0].key, parent[bodyMetrics[0].key]);
     let cy = startCy;
     for(let i = 0; i < rightArmMetrics.length; i++){
         const b = rightArmMetrics[i];
@@ -217,35 +233,36 @@ gs.each(function(parent){
             .append("circle")
             .attr("cx", d => {
                 if(i === 0){
-                    cx += calculateRadius(b, d[b]);
+                    cx += calculateRadius(b.key, d[b.key]);
                 } else {
-                    cx += cos45*calculateRadius(b, d[b]);
+                    cx += cos45*calculateRadius(b.key, d[b.key]);
                 }
                 return cx;
             })
             .attr("cy", d => {
                 if(i > 0){
-                    cy -= cos45*calculateRadius(b, d[b]);
+                    cy -= cos45*calculateRadius(b.key, d[b.key]);
                 }
                 return cy;
             })
             .attr("r", d => {
-                const r = calculateRadius(b, d[b]);
+                const r = calculateRadius(b.key, d[b.key]);
                 cx += cos45*r;
                 cy -= cos45*r;
                 return r;
             })
-            .classed(b, true)
+            .attr("fill", b.colour)
+            .classed(b.key, true)
             .on("mouseover", onMetricOver)
             .on("mouseout", onMetricOut)
             .append("svg:title")
-            .text(d => `${b} : ${d[b]}`)
+            .text(d => `${b.description} : ${d[b.key]}`)
     }
 });
 
 // left legs
 gs.each(function(parent){
-    const lastBodyMetric = bodyMetrics[bodyMetrics.length-1];
+    const lastBodyMetric = bodyMetrics[bodyMetrics.length-1].key;
     const lastBodyNode = d3.select(`#${parent.name}`).select(`.${lastBodyMetric}`).node();
     let cx = Number(lastBodyNode.getAttribute("cx")) - cos45*Number(lastBodyNode.getAttribute("r"));
     let cy = Number(lastBodyNode.getAttribute("cy")) + cos45*Number(lastBodyNode.getAttribute("r"));
@@ -254,30 +271,31 @@ gs.each(function(parent){
         d3.select(this)
             .append("circle")
             .attr("cx", d => {
-                cx -= cos45*calculateRadius(b, d[b]);
+                cx -= cos45*calculateRadius(b.key, d[b.key]);
                 return cx;
             })
             .attr("cy", d => {
-                cy += cos45*calculateRadius(b, d[b]);
+                cy += cos45*calculateRadius(b.key, d[b.key]);
                 return cy;
             })
             .attr("r", d => {
-                const r = calculateRadius(b, d[b]);
+                const r = calculateRadius(b.key, d[b.key]);
                 cx -= cos45*r;
                 cy += cos45*r;
                 return r;
             })
-            .classed(b, true)
+            .attr("fill", b.colour)
+            .classed(b.key, true)
             .on("mouseover", onMetricOver)
             .on("mouseout", onMetricOut)
             .append("svg:title")
-            .text(d => `${b} : ${d[b]}`)
+            .text(d => `${b.description} : ${d[b.key]}`)
     }
 });
 
 // right legs
 gs.each(function(parent){
-    const lastBodyMetric = bodyMetrics[bodyMetrics.length-1];
+    const lastBodyMetric = bodyMetrics[bodyMetrics.length-1].key;
     const lastBodyNode = d3.select(`#${parent.name}`).select(`.${lastBodyMetric}`).node();
     let cx = Number(lastBodyNode.getAttribute("cx")) + cos45*Number(lastBodyNode.getAttribute("r"));
     let cy = Number(lastBodyNode.getAttribute("cy")) + cos45*Number(lastBodyNode.getAttribute("r"));
@@ -286,31 +304,57 @@ gs.each(function(parent){
         d3.select(this)
             .append("circle")
             .attr("cx", d => {
-                cx += cos45*calculateRadius(b, d[b]);
+                cx += cos45*calculateRadius(b.key, d[b.key]);
                 return cx;
             })
             .attr("cy", d => {
-                cy += cos45*calculateRadius(b, d[b]);
+                cy += cos45*calculateRadius(b.key, d[b.key]);
                 return cy;
             })
             .attr("r", d => {
-                const r = calculateRadius(b, d[b]);
+                const r = calculateRadius(b.key, d[b.key]);
                 cx += cos45*r;
                 cy += cos45*r;
                 return r;
             })
-            .classed(b, true)
+            .attr("fill", b.colour)
+            .classed(b.key, true)
             .on("mouseover", onMetricOver)
             .on("mouseout", onMetricOut)
             .append("svg:title")
-            .text(d => `${b} : ${d[b]}`)
+            .text(d => `${b.description} : ${d[b.key]}`)
     }
 });
 
 function onMetricOver() {
-    d3.select(this).attr("stroke", "black");
+    d3.select(this).attr("stroke", "black").raise();
 }
 
 function onMetricOut() {
     d3.select(this).attr("stroke", null);
 }
+
+// generate legend
+
+const legendTable = d3.select(".legend").append("table");
+
+legendTable.append("thead")
+    .append("tr")
+    .append("th")
+    .text("Legend");
+
+const legendRows = legendTable.append("tbody")
+    .selectAll("tr")
+    .data(metrics)
+    .enter()
+    .append("tr");
+
+legendRows.append("td")
+    .append("svg")
+    .attr("width", 10)
+    .attr("height", 10)
+    .append("rect")
+    .attr("width", 10)
+    .attr("height", 10)
+    .attr("fill", d => d.colour);
+legendRows.append("td").text(d => d.description);

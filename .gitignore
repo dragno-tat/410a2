@@ -1,2 +1,5 @@
 .idea/
 *.iml
+metadataAnalysis/metadata.js
+metadataAnalysis/package-lock.json
+metadataAnalysis/node_modules/
