@@ -1,6 +1,14 @@
-const fs = require('fs');
+const request = require('request');
+const fs = require("fs");
 
-function parse(filePath) {
+const repo = "EnterpriseQualityCoding/FizzBuzzEnterpriseEdition";
+
+// Github authentication recommended for faster request rates
+// Input below
+const auth = '';
+
+
+async function parse(filePath) {
     /*
     Given a path to the file, output some lexical info about the file
     
@@ -20,7 +28,7 @@ function parse(filePath) {
     */
 
     let result = {};
-    let file = fs.readFileSync(filePath, "utf-8");
+    let file = await getJavaFile(filePath);
     let lines = file.split("\n");
     result["size"] = lines.length;
     if (result["size"] == 0) {
@@ -111,9 +119,78 @@ function parseComments(lines) {
             commenting = false;
         }
     }
-    console.log("!!!" + comments);
     return comments;
 }
+
+function getJavaFiles() {
+    return new Promise( function (resolve, reject) {
+        let options = { 
+            method: 'GET',
+            url: 'https://api.github.com/repos/' + repo + '/git/trees/master',
+            qs: { recursive: '1' },
+            headers: {
+                'User-Agent' : 'User'
+            }
+        };
+        request(options, function (error, response, body) {
+            if (error) {
+                console.log(error);
+                reject(error);
+            } else {
+                let javaFiles = [];
+                let b = JSON.parse(body);
+                for (t of b["tree"]) {
+                    let path = t["path"];
+                    if ((t["type"] == "blob") && (path.substring(path.length - 5, path.length) == ".java")) {
+                        javaFiles.push(path);
+                    }
+                }
+                resolve(javaFiles);
+            }
+        });
+    });
+}
+
+function getJavaFile(path) {
+    return new Promise( function (resolve, reject) {
+        let options = { 
+            method: 'GET',
+            url: 'https://api.github.com/repos/' + repo + '/contents/' + path,
+            headers: { 
+                Authorization: auth,
+                'User-Agent': 'User'
+            }
+        };
+
+        request(options, function (error, response, body) {
+            if (error)  {
+                console.log(error);
+                reject(error);
+            } else {
+                try {
+                    let content = JSON.parse(body)["content"];
+                    resolve(Buffer.from(content, 'base64').toString('utf8'));
+                } catch (err) {
+                    console.log(err);
+                    console.log("Error getting file: " + path);
+                }
+            }
+        });
+    });
+}
+
+async function main() {
+    let result = {};
+    let files = await getJavaFiles();
+    for (file of files) {
+        console.log("Parsing " + file);
+        let res = await parse(file);
+        result[file] = res;
+    }
+    fs.writeFileSync('./results.json', JSON.stringify(result));
+}
+
+main();
 
 // for testing
 //let res = parse('./test.java');
