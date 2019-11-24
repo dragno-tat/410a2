@@ -21,8 +21,7 @@ public final class Main {
 		final FizzBuzz myFizzBuzz = (FizzBuzz) context.getBean(Constants.STANDARD_FIZZ_BUZZ);
 		final FizzBuzzUpperLimitParameter fizzBuzzUpperLimit = new DefaultFizzBuzzUpperLimitParameter();
 		myFizzBuzz.fizzBuzz(fizzBuzzUpperLimit.obtainUpperLimitValue());
-		((ConfigurableApplicationContext) context).close();
-
+        ((ConfigurableApplicationContext) context).close();
     }
 
     //

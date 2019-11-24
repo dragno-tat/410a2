@@ -8,7 +8,9 @@ function parse(filePath) {
     {
         size : number representing lines in the file
         dependencies : a list of dependencies of the file
-        methods : a list of methods of the file
+        methods : {
+            method_name : number of lines
+        }
         comment_ratio : a float number representing comments per lines of code
     }
     */
@@ -43,12 +45,32 @@ function parseDependencies(lines) {
 }
 
 function parseMethods(lines) {
-    let methods = [];
+    let methods = {};
     let method_regex = /(public|protected|private|static|\s) +[\w\<\>\[\],\s]+\s+(\w+) *\([^\)]*\)/;
+    let in_method = false;
+    let curr_method = null;
+    let left_bCount = 0;
+    let right_bCount = 0;
     for (line of lines) {
+        if (in_method) {
+            methods[curr_method] += 1;
+        }
         let matches = line.match(method_regex);
         if (matches) {
-            methods.push(matches[2]);
+            let name = matches[2];
+            methods[name] = 1;
+            curr_method = name;
+            in_method = true;
+        }
+        if (in_method) {
+            let lbc = line.match(/{/g || []);
+            let rbc = line.match(/}/g || []);
+            left_bCount += (lbc ? lbc.length : 0);
+            right_bCount += (rbc ? rbc.length: 0);
+            if ((left_bCount - right_bCount) == 0) {
+                curr_method = null;
+                in_method = false;
+            }
         }
     }
     return methods;
@@ -74,6 +96,6 @@ function parseComments(lines) {
     return comments;
 }
 
-/* for testing
-let res = parse('./lexicalAnalysis/test.java');
-*/
+// for testing
+//let res = parse('./test.java');
+//console.log(res);
