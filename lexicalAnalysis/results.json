@@ -7,7 +7,7 @@
             "org.springframework.context.ApplicationContextAware;",
             "org.springframework.stereotype.Service;"
         ],
-        "mathods": {
+        "methods": {
             "setApplicationContext": {
                 "lines": 3,
                 "comments": 0,
@@ -24,7 +24,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/Constants.java": {
         "size": 21,
         "dependencies": [],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/Main.java": {
@@ -37,7 +37,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.FizzBuzz;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.parameters.FizzBuzzUpperLimitParameter;"
         ],
-        "mathods": {
+        "methods": {
             "main": {
                 "lines": 9,
                 "comments": 0,
@@ -55,7 +55,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.FizzBuzzSolutionStrategyFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.FizzBuzzSolutionStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "fizzBuzz": {
                 "lines": 5,
                 "comments": 0,
@@ -73,7 +73,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.IsEvenlyDivisibleStrategyFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.IsEvenlyDivisibleStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "createIsEvenlyDivisibleStrategy": {
                 "lines": 3,
                 "comments": 0,
@@ -91,7 +91,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.StringPrinterFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.StringPrinter;"
         ],
-        "mathods": {
+        "methods": {
             "createStringPrinter": {
                 "lines": 3,
                 "comments": 0,
@@ -109,7 +109,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.StringStringReturnerFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.StringStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "createStringStringReturner": {
                 "lines": 3,
                 "comments": 0,
@@ -126,7 +126,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.FizzBuzzSolutionStrategyFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.FizzBuzzSolutionStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "createFizzBuzzSolutionStrategy": {
                 "lines": 3,
                 "comments": 0,
@@ -144,7 +144,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.OutputGenerationContextVisitorFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.visitors.OutputGenerationContextVisitor;"
         ],
-        "mathods": {
+        "methods": {
             "createVisitor": {
                 "lines": 3,
                 "comments": 0,
@@ -162,7 +162,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.IsEvenlyDivisibleStrategyFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.IsEvenlyDivisibleStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "FizzStrategyFactory": {
                 "lines": 4,
                 "comments": 0,
@@ -185,7 +185,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.StringPrinterFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.StringPrinter;"
         ],
-        "mathods": {
+        "methods": {
             "createStringPrinter": {
                 "lines": 3,
                 "comments": 0,
@@ -203,7 +203,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.StringStringReturnerFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.StringStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "createStringStringReturner": {
                 "lines": 3,
                 "comments": 0,
@@ -221,7 +221,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.IntegerPrinterFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.IntegerPrinter;"
         ],
-        "mathods": {
+        "methods": {
             "createPrinter": {
                 "lines": 3,
                 "comments": 0,
@@ -239,7 +239,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.IntegerStringReturnerFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.IntegerStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "createIntegerStringReturner": {
                 "lines": 3,
                 "comments": 0,
@@ -258,7 +258,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.loop.LoopInitializer;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.loop.LoopStep;"
         ],
-        "mathods": {
+        "methods": {
             "createLoopCondition": {
                 "lines": 3,
                 "comments": 0,
@@ -291,7 +291,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.StringPrinterFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.StringPrinter;"
         ],
-        "mathods": {
+        "methods": {
             "createStringPrinter": {
                 "lines": 3,
                 "comments": 0,
@@ -309,7 +309,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.StringStringReturnerFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.StringStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "createStringStringReturner": {
                 "lines": 3,
                 "comments": 0,
@@ -327,7 +327,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.IsEvenlyDivisibleStrategyFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.IsEvenlyDivisibleStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "createIsEvenlyDivisibleStrategy": {
                 "lines": 3,
                 "comments": 0,
@@ -345,7 +345,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.factories.FizzBuzzOutputStrategyFactory;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.FizzBuzzOutputStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "createOutputStrategy": {
                 "lines": 5,
                 "comments": 0,
@@ -361,7 +361,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.strategies.comparators.integercomparator.ThreeWayIntegerComparator;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.strategies.comparators.integercomparator.ThreeWayIntegerComparisonResult;"
         ],
-        "mathods": {
+        "methods": {
             "evaluateLoop": {
                 "lines": 11,
                 "comments": 0,
@@ -381,7 +381,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.loop.LoopContextStateManipulation;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.loop.LoopContextStateRetrieval;"
         ],
-        "mathods": {
+        "methods": {
             "start": {
                 "lines": 4,
                 "comments": 0,
@@ -408,7 +408,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/loop/LoopFinalizer.java": {
         "size": 17,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "getLoopFinalizationPoint": {
                 "lines": 3,
                 "comments": 0,
@@ -423,7 +423,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.Constants;"
         ],
-        "mathods": {
+        "methods": {
             "getLoopInitializationPoint": {
                 "lines": 3,
                 "comments": 0,
@@ -439,7 +439,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.loop.LoopContextStateRetrieval;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.loop.LoopPayloadExecution;"
         ],
-        "mathods": {
+        "methods": {
             "runLoop": {
                 "lines": 5,
                 "comments": 0,
@@ -454,7 +454,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.Constants;"
         ],
-        "mathods": {
+        "methods": {
             "stepLoop": {
                 "lines": 3,
                 "comments": 0,
@@ -475,7 +475,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.strategies.converters.primitivetypesconverters.DoubleToIntConverter;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.strategies.converters.primitivetypesconverters.IntToDoubleConverter;"
         ],
-        "mathods": {
+        "methods": {
             "divide": {
                 "lines": 21,
                 "comments": 0,
@@ -494,7 +494,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.strategies.comparators.integercomparator.IntegerForEqualityComparator;"
         ],
-        "mathods": {
+        "methods": {
             "init": {
                 "lines": 5,
                 "comments": 0,
@@ -514,7 +514,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.Constants;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.parameters.FizzBuzzUpperLimitParameter;"
         ],
-        "mathods": {
+        "methods": {
             "obtainUpperLimitValue": {
                 "lines": 3,
                 "comments": 0,
@@ -530,7 +530,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.factories.SystemOutFizzBuzzOutputStrategyFactory;"
         ],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/printers/BuzzStringPrinter.java": {
@@ -544,7 +544,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.StringPrinter;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.StringStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "print": {
                 "lines": 9,
                 "comments": 0,
@@ -565,7 +565,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.factories.SystemOutFizzBuzzOutputStrategyFactory;"
         ],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/printers/FizzStringPrinter.java": {
@@ -579,7 +579,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.StringPrinter;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.StringStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "print": {
                 "lines": 9,
                 "comments": 0,
@@ -604,7 +604,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.IntegerPrinter;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.IntegerStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "printInteger": {
                 "lines": 10,
                 "comments": 0,
@@ -630,7 +630,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.factories.SystemOutFizzBuzzOutputStrategyFactory;"
         ],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/printers/NewLinePrinter.java": {
@@ -640,7 +640,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.factories.SystemOutFizzBuzzOutputStrategyFactory;"
         ],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/printers/NewLineStringPrinter.java": {
@@ -654,7 +654,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.StringPrinter;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.StringStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "print": {
                 "lines": 10,
                 "comments": 0,
@@ -676,7 +676,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.strategies.constants.BuzzStrategyConstants;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.math.arithmetics.NumberIsMultipleOfAnotherNumberVerifier;"
         ],
-        "mathods": {
+        "methods": {
             "isEvenlyDivisible": {
                 "lines": 8,
                 "comments": 0,
@@ -695,7 +695,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.loop.LoopPayloadExecution;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.FizzBuzzSolutionStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "runSolution": {
                 "lines": 5,
                 "comments": 0,
@@ -712,7 +712,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.strategies.constants.FizzStrategyConstants;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.math.arithmetics.NumberIsMultipleOfAnotherNumberVerifier;"
         ],
-        "mathods": {
+        "methods": {
             "isEvenlyDivisible": {
                 "lines": 8,
                 "comments": 0,
@@ -729,7 +729,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.strategies.constants.NoFizzNoBuzzStrategyConstants;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.math.arithmetics.NumberIsMultipleOfAnotherNumberVerifier;"
         ],
-        "mathods": {
+        "methods": {
             "isEvenlyDivisible": {
                 "lines": 21,
                 "comments": 0,
@@ -754,7 +754,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.visitors.OutputGenerationContext;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.visitors.OutputGenerationContextVisitor;"
         ],
-        "mathods": {
+        "methods": {
             "performGenerationForCurrentStep": {
                 "lines": 9,
                 "comments": 0,
@@ -773,7 +773,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.loop.LoopPayloadExecution;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.OutputGenerationStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "runLoopPayload": {
                 "lines": 5,
                 "comments": 0,
@@ -789,7 +789,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.FizzBuzzOutputStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "output": {
                 "lines": 6,
                 "comments": 0,
@@ -804,7 +804,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.FizzBuzzExceptionSafeOutputStrategy;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.FizzBuzzOutputStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "output": {
                 "lines": 9,
                 "comments": 2,
@@ -819,7 +819,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.loop.LoopContextStateRetrieval;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.SingleStepOutputGenerationParameter;"
         ],
-        "mathods": {
+        "methods": {
             "retrieveIntegerValue": {
                 "lines": 3,
                 "comments": 0,
@@ -833,7 +833,7 @@
         "dependencies": [
             "org.springframework.stereotype.Service;"
         ],
-        "mathods": {
+        "methods": {
             "FirstIsLargerThanSecond": {
                 "lines": 7,
                 "comments": 0,
@@ -847,7 +847,7 @@
         "dependencies": [
             "org.springframework.stereotype.Service;"
         ],
-        "mathods": {
+        "methods": {
             "FirstIsSmallerThanSecond": {
                 "lines": 7,
                 "comments": 0,
@@ -861,7 +861,7 @@
         "dependencies": [
             "org.springframework.stereotype.Service;"
         ],
-        "mathods": {
+        "methods": {
             "areTwoIntegersEqual": {
                 "lines": 9,
                 "comments": 0,
@@ -876,7 +876,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.impl.Constants;"
         ],
-        "mathods": {
+        "methods": {
             "Compare": {
                 "lines": 12,
                 "comments": 1,
@@ -888,7 +888,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/strategies/comparators/integercomparator/ThreeWayIntegerComparisonResult.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/strategies/constants/BuzzStrategyConstants.java": {
@@ -896,7 +896,7 @@
         "dependencies": [
             "org.springframework.stereotype.Service;"
         ],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/strategies/constants/FizzStrategyConstants.java": {
@@ -904,7 +904,7 @@
         "dependencies": [
             "org.springframework.stereotype.Service;"
         ],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/strategies/constants/NoFizzNoBuzzStrategyConstants.java": {
@@ -912,7 +912,7 @@
         "dependencies": [
             "org.springframework.stereotype.Service;"
         ],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/impl/strategies/converters/primitivetypesconverters/DoubleToIntConverter.java": {
@@ -920,7 +920,7 @@
         "dependencies": [
             "org.springframework.stereotype.Service;"
         ],
-        "mathods": {
+        "methods": {
             "Convert": {
                 "lines": 4,
                 "comments": 0,
@@ -934,7 +934,7 @@
         "dependencies": [
             "org.springframework.stereotype.Service;"
         ],
-        "mathods": {
+        "methods": {
             "Convert": {
                 "lines": 4,
                 "comments": 0,
@@ -949,7 +949,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.StringStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "getReturnString": {
                 "lines": 6,
                 "comments": 0,
@@ -964,7 +964,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.StringStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "getReturnString": {
                 "lines": 7,
                 "comments": 0,
@@ -979,7 +979,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.IntegerStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "getIntegerReturnString": {
                 "lines": 6,
                 "comments": 0,
@@ -994,7 +994,7 @@
             "org.springframework.stereotype.Service;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.StringStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "getReturnString": {
                 "lines": 7,
                 "comments": 0,
@@ -1010,7 +1010,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.IsEvenlyDivisibleStrategy;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.visitors.OutputGenerationContext;"
         ],
-        "mathods": {
+        "methods": {
             "getPrinter": {
                 "lines": 3,
                 "comments": 0,
@@ -1033,7 +1033,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.visitors.OutputGenerationContext;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.visitors.OutputGenerationContextVisitor;"
         ],
-        "mathods": {
+        "methods": {
             "visit": {
                 "lines": 7,
                 "comments": 0,
@@ -1045,7 +1045,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/FizzBuzz.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/factories/FizzBuzzOutputStrategyFactory.java": {
@@ -1053,7 +1053,7 @@
         "dependencies": [
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.FizzBuzzOutputStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "createOutputStrategy": {
                 "lines": 1,
                 "comments": 0,
@@ -1067,7 +1067,7 @@
         "dependencies": [
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.FizzBuzzSolutionStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "createFizzBuzzSolutionStrategy": {
                 "lines": 1,
                 "comments": 0,
@@ -1081,7 +1081,7 @@
         "dependencies": [
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.IntegerPrinter;"
         ],
-        "mathods": {
+        "methods": {
             "createPrinter": {
                 "lines": 1,
                 "comments": 0,
@@ -1095,7 +1095,7 @@
         "dependencies": [
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.IntegerStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "createIntegerStringReturner": {
                 "lines": 1,
                 "comments": 0,
@@ -1109,7 +1109,7 @@
         "dependencies": [
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.IsEvenlyDivisibleStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "createIsEvenlyDivisibleStrategy": {
                 "lines": 1,
                 "comments": 0,
@@ -1123,7 +1123,7 @@
         "dependencies": [
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.visitors.OutputGenerationContextVisitor;"
         ],
-        "mathods": {
+        "methods": {
             "createVisitor": {
                 "lines": 1,
                 "comments": 0,
@@ -1137,7 +1137,7 @@
         "dependencies": [
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.StringPrinter;"
         ],
-        "mathods": {
+        "methods": {
             "createStringPrinter": {
                 "lines": 1,
                 "comments": 0,
@@ -1151,7 +1151,7 @@
         "dependencies": [
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.stringreturners.StringStringReturner;"
         ],
-        "mathods": {
+        "methods": {
             "createStringStringReturner": {
                 "lines": 1,
                 "comments": 0,
@@ -1163,7 +1163,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/loop/LoopContextStateManipulation.java": {
         "size": 10,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "start": {
                 "lines": 1,
                 "comments": 0,
@@ -1185,7 +1185,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/loop/LoopContextStateRetrieval.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "getControlParameter": {
                 "lines": 1,
                 "comments": 0,
@@ -1197,7 +1197,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/loop/LoopPayloadExecution.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "runLoopPayload": {
                 "lines": 1,
                 "comments": 0,
@@ -1209,7 +1209,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/parameters/FizzBuzzUpperLimitParameter.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "obtainUpperLimitValue": {
                 "lines": 1,
                 "comments": 0,
@@ -1221,7 +1221,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/printers/DataPrinter.java": {
         "size": 9,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "print": {
                 "lines": 1,
                 "comments": 0,
@@ -1238,7 +1238,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/printers/IntegerPrinter.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "printInteger": {
                 "lines": 1,
                 "comments": 0,
@@ -1250,7 +1250,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/printers/StringPrinter.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "print": {
                 "lines": 1,
                 "comments": 0,
@@ -1262,7 +1262,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/strategies/FizzBuzzExceptionSafeOutputStrategy.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "output": {
                 "lines": 1,
                 "comments": 0,
@@ -1276,7 +1276,7 @@
         "dependencies": [
             "java.io.IOException;"
         ],
-        "mathods": {
+        "methods": {
             "output": {
                 "lines": 1,
                 "comments": 0,
@@ -1288,7 +1288,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/strategies/FizzBuzzSolutionStrategy.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "runSolution": {
                 "lines": 1,
                 "comments": 0,
@@ -1300,7 +1300,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/strategies/IsEvenlyDivisibleStrategy.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "isEvenlyDivisible": {
                 "lines": 1,
                 "comments": 0,
@@ -1312,13 +1312,13 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/strategies/OutputGenerationStrategy.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     },
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/strategies/SingleStepOutputGenerationParameter.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "retrieveIntegerValue": {
                 "lines": 1,
                 "comments": 0,
@@ -1330,7 +1330,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/stringreturners/IntegerStringReturner.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "getIntegerReturnString": {
                 "lines": 1,
                 "comments": 0,
@@ -1342,7 +1342,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/stringreturners/StringStringReturner.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "getReturnString": {
                 "lines": 1,
                 "comments": 0,
@@ -1357,7 +1357,7 @@
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.printers.DataPrinter;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.strategies.IsEvenlyDivisibleStrategy;"
         ],
-        "mathods": {
+        "methods": {
             "getStrategy": {
                 "lines": 1,
                 "comments": 0,
@@ -1374,7 +1374,7 @@
     "src/main/java/com/seriouscompany/business/java/fizzbuzz/packagenamingpackage/interfaces/visitors/OutputGenerationContextVisitor.java": {
         "size": 8,
         "dependencies": [],
-        "mathods": {
+        "methods": {
             "visit": {
                 "lines": 1,
                 "comments": 0,
@@ -1399,7 +1399,7 @@
             "org.springframework.context.support.ClassPathXmlApplicationContext;",
             "com.seriouscompany.business.java.fizzbuzz.packagenamingpackage.interfaces.FizzBuzz;"
         ],
-        "mathods": {
+        "methods": {
             "setUp": {
                 "lines": 6,
                 "comments": 0,
@@ -1426,7 +1426,7 @@
     "src/test/java/TestConstants.java": {
         "size": 43,
         "dependencies": [],
-        "mathods": {},
+        "methods": {},
         "comment_ratio": 0
     }
 }

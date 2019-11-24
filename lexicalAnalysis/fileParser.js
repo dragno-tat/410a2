@@ -5,7 +5,7 @@ const repo = "EnterpriseQualityCoding/FizzBuzzEnterpriseEdition";
 
 // Github authentication recommended for faster request rates
 // Input below
-const auth = '';
+const auth = 'Basic VGJyaWQ6VGJyaWRtYWsyIyM=';
 
 
 async function parse(filePath) {
@@ -36,7 +36,7 @@ async function parse(filePath) {
         exit(0);
     }
     result["dependencies"] = parseDependencies(lines);
-    result["mathods"] = parseMethods(lines);
+    result["methods"] = parseMethods(lines);
     result["comment_ratio"] = parseComments(lines) / result["size"];
     return result;
 }
