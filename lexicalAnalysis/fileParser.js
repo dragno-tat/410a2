@@ -9,7 +9,11 @@ function parse(filePath) {
         size : number representing lines in the file
         dependencies : a list of dependencies of the file
         methods : {
-            method_name : number of lines
+            method_name : {
+                lines : number of lines
+                comments : number of comments
+                comment_ratio : comments / lines
+            }
         }
         comment_ratio : a float number representing comments per lines of code
     }
@@ -82,6 +86,7 @@ function parseMethods(lines) {
                 commenting = false;
             }
             if ((left_bCount - right_bCount) == 0) {
+                methods[curr_method]["comment_ratio"] = methods[curr_method]["comments"] / methods[curr_method]["lines"];
                 curr_method = null;
                 in_method = false;
             }
