@@ -51,14 +51,17 @@ function parseMethods(lines) {
     let curr_method = null;
     let left_bCount = 0;
     let right_bCount = 0;
+    let commenting = false;
     for (line of lines) {
         if (in_method) {
-            methods[curr_method] += 1;
+            methods[curr_method]["lines"] += 1;
         }
         let matches = line.match(method_regex);
         if (matches) {
             let name = matches[2];
-            methods[name] = 1;
+            methods[name] = {};
+            methods[name]["lines"] = 1;
+            methods[name]["comments"] = 0;
             curr_method = name;
             in_method = true;
         }
@@ -67,6 +70,17 @@ function parseMethods(lines) {
             let rbc = line.match(/}/g || []);
             left_bCount += (lbc ? lbc.length : 0);
             right_bCount += (rbc ? rbc.length: 0);
+            if (commenting) {
+                methods[curr_method]["comments"] += 1;
+            }
+            if (line.includes("//") && !commenting) {
+                methods[curr_method]["comments"] += 1;
+            } else if (line.includes("/*") && !commenting) {
+                commenting = true;
+                methods[curr_method]["comments"] += 1;
+            } else if (line.includes("*/")) {
+                commenting = false;
+            }
             if ((left_bCount - right_bCount) == 0) {
                 curr_method = null;
                 in_method = false;
@@ -80,19 +94,19 @@ function parseComments(lines) {
     let comments = 0;
     let commenting = false;
     for (line of lines) {
-        let v = line;
         if (commenting) {
             comments += 1;
         }
-        if (line.includes("//")) {
+        if (line.includes("//") && !commenting) {
             comments += 1;
-        } else if (line.includes("/*")) {
+        } else if (line.includes("/*") && !commenting) {
             commenting = true;
             comments += 1;
         } else if (line.includes("*/")) {
             commenting = false;
         }
     }
+    console.log("!!!" + comments);
     return comments;
 }
 
