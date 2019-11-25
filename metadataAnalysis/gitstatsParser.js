@@ -400,4 +400,4 @@ const parse = () => {
     };
 };
 
-fs.writeFileSync("metadata.js", "const metadata = " + JSON.stringify(parse()));
+fs.writeFileSync("metadata.json", JSON.stringify(parse()));

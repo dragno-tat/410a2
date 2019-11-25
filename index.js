@@ -1,34 +1,18 @@
-const dataset = [];
-
-function addMetadataToDataset(){
-    dataset.push(...metadata.authors["List of Authors"].map(a => {
-        const age = Number(a["Age"].split(" ")[0]);
-        return {
-            name: a["Author"].replace(/\s/g, ''),
-            linesAdded: Number(a["+ lines"]),
-            linesRemoved: Number(a["- lines"]),
-            activeDays: Number(a["Active days"]),
-            commits: Number(a["Commits (%)"].split(" ")[0]),
-            age: isNaN(age) ? 1 : age,
-        }
-    }));
-}
-
-addMetadataToDataset();
+const dataset = metricsDataset;
 
 /* parts */
 const metrics = [
     {
         key: "linesAdded",
-        description: "Lines Added",
+        description: "Lines added",
         colour: "red",
-        part: "rightArm"
+        part: "rightLeg"
     },
     {
         key: "linesRemoved",
-        description: "Lines Removed",
+        description: "Lines removed",
         colour: "blue",
-        part: "leftArm"
+        part: "leftLeg"
     },
     {
         key: "commits",
@@ -36,18 +20,55 @@ const metrics = [
         colour: "green",
         part: "body"
     },
+
     {
         key: "activeDays",
-        description: "Active Days",
+        description: "Active days",
         colour: "#fa1abc",
         part: "leftLeg"
     },
     {
         key: "age",
-        description: "Length on Project",
+        description: "Length on project",
         colour: "#34eb52",
         part: "rightLeg"
     },
+    {
+        key: "avgDependencies",
+        description: "Average dependencies in files worked on",
+        colour: "#80e1ef",
+        part: "leftArm"
+    },
+    {
+        key: "weightedDependencies",
+        description: "Dependencies in files worked on weighted by file size",
+        colour: "#ef8616",
+        part: "leftArm"
+    },
+    {
+        key: "avgMethodSize",
+        description: "Average method size in files worked on",
+        colour: "#2eef9a",
+        part: "rightArm"
+    },
+    {
+        key: "weightedMethodSize",
+        description: "Method size in files worked on weighted by file size",
+        colour: "#cbef21",
+        part: "rightArm"
+    },
+    {
+        key: "avgLineCoverage",
+        description: "Average line coverage in classes worked on",
+        colour: "#9608ef",
+        part: "body"
+    },
+    {
+        key: "weightedLineCoverage",
+        description: "Line coverage in classes worked on weighted by number of commits",
+        colour: "#3d07ef",
+        part: "body"
+    }
 ];
 
 const bodyMetrics = metrics.filter(m => m.part === "body");
@@ -69,7 +90,11 @@ function calculateMetricTotals(){
         totals[m.key] = 0;
         for(const d of dataset){
             totals[m.key] += d[m.key];
+            if(m.key === "avgDependencies"){
+                console.log(totals[m.key]);
+            }
         }
+
     }
     return totals;
 }
@@ -107,7 +132,7 @@ const drag = d3.drag()
 const gs = developers.selectAll("g").data(dataset)
     .enter()
     .append("g")
-    .attr("id", d => d.name)
+    .attr("id", d => d.name.replace(/\s/g, ''))
     .attr("transform",(d, i) => {
         d.x = i*500;
         d.y = 0;
@@ -263,7 +288,7 @@ gs.each(function(parent){
 // left legs
 gs.each(function(parent){
     const lastBodyMetric = bodyMetrics[bodyMetrics.length-1].key;
-    const lastBodyNode = d3.select(`#${parent.name}`).select(`.${lastBodyMetric}`).node();
+    const lastBodyNode = d3.select(`#${parent.name.replace(/\s/g, '')}`).select(`.${lastBodyMetric}`).node();
     let cx = Number(lastBodyNode.getAttribute("cx")) - cos45*Number(lastBodyNode.getAttribute("r"));
     let cy = Number(lastBodyNode.getAttribute("cy")) + cos45*Number(lastBodyNode.getAttribute("r"));
     for(let i = 0; i < leftLegMetrics.length; i++){
@@ -296,7 +321,7 @@ gs.each(function(parent){
 // right legs
 gs.each(function(parent){
     const lastBodyMetric = bodyMetrics[bodyMetrics.length-1].key;
-    const lastBodyNode = d3.select(`#${parent.name}`).select(`.${lastBodyMetric}`).node();
+    const lastBodyNode = d3.select(`#${parent.name.replace(/\s/g, '')}`).select(`.${lastBodyMetric}`).node();
     let cx = Number(lastBodyNode.getAttribute("cx")) + cos45*Number(lastBodyNode.getAttribute("r"));
     let cy = Number(lastBodyNode.getAttribute("cy")) + cos45*Number(lastBodyNode.getAttribute("r"));
     for(let i = 0; i < rightLegMetrics.length; i++){
