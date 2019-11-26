@@ -44,3 +44,8 @@ a single javascript file which was then fed into the visualization as the datase
 spider chart, where we have a representation for each developer in the repo which is composed of circles corresponding
 to the metrics, and the circles are sized appropriately to reflect the relative differences across developers. Hovering
 over the circle will show the actual value of that metric for that developer.    
+
+### User Studies
+We conducted one user study with our prototype and two user studies with our final product. Our initial prototype was a drawing of our visualization where each person had five unfilled circles showing our metadata analysis. The user gave more feedback on adding more metrics (Lexical/Static and Dynamic Analysis) as well as suggesting some visual changes. We made these changes in our final product and got great feedback from two engineering students. Both students gave positive feedback on our visualization. Future suggestions were to highlight the 1st, 2nd, and 3rd largest contributors in the visualization.
+
+
