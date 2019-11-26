@@ -26,7 +26,7 @@ the repo, and then parsing the output html into a usable json file for our visua
 * Average method size in files worked on
 * Method size in files worked on weighted by file size
 
-This was done by scanning through every Java source code file in the repo, and then running a series of regex
+This was done by scanning through every Java source code file in the repo using the github api, and then running a series of regex
 expressions on the code to obtain the size of the file, a list of the dependencies, a list of the methods along 
 with their metadata, and the comment ratio of the file. Unfortunately, comment metrics were not incorporated into 
 the final visualization due to there not being any comments in the source files of the target repo.
