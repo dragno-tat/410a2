@@ -42,4 +42,5 @@ within the repo, and then parsing that output into a csv file as well as a json 
 The visualization was built using the D3.js library. The json data generated from all the analysis was aggregated into
 a single javascript file which was then fed into the visualization as the dataset. The visualization is similar to a
 spider chart, where we have a representation for each developer in the repo which is composed of circles corresponding
-to the metrics, and the circles are sized appropriately to reflect the relative differences across developers.    
+to the metrics, and the circles are sized appropriately to reflect the relative differences across developers. Hovering
+over the circle will show the actual value of that metric for that developer.    
