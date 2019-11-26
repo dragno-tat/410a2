@@ -1,30 +1,30 @@
 body {
-    font-family: sans-serif;
-    margin:0;
-    position:fixed;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
+  font-family: sans-serif;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .legend {
-    width: 30%;
-    position:fixed;
-    top:auto;
-    right:0;
-    bottom:0;
-    left:0;
+  width: 30%;
+  position: fixed;
+  top: auto;
+  right: 0;
+  bottom: 5%;
+  left: 5%;
 }
 
 .head {
-    fill: yellow;
+  fill: yellow;
 }
 
 .eye {
-    fill: red;
+  fill: red;
 }
 
 .smile {
-    fill: black;
+  fill: black;
 }
